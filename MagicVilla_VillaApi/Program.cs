@@ -1,8 +1,18 @@
+using MagicVilla_VillaApi;
+using MagicVilla_VillaApi.Data;
 using MagicVilla_VillaApi.Logging;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
+});
+
+builder.Services.AddAutoMapper(typeof(MappingConfig));
 
 
 // If you want to loggin to files. Below here is the setup code and you need several packages, such as: Serilog.AspNetCore and Serilog.Sinks.File
