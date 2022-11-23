@@ -1,6 +1,8 @@
 using MagicVilla_VillaApi;
 using MagicVilla_VillaApi.Data;
 using MagicVilla_VillaApi.Logging;
+using MagicVilla_VillaApi.Repository;
+using MagicVilla_VillaApi.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,7 +36,16 @@ builder.Services.AddSwaggerGen();
 
 // AddScoped: The second order in service. It will create a new object where needed and reused in this place, even this place created a lot of objects
 // AddTransient: The lowest order in service. Everytime that object is needed, it will be created. Ex: even 10 requests, it will be created 10 times. 
+
+//Transient objects are always different; a new instance is provided to every controller and every service.
+
+//Scoped objects are the same within a request, but different across different requests.
+
+//Singleton objects are the same for every object and every request.
+
+
 builder.Services.AddSingleton<ILogging, Logging>();
+builder.Services.AddScoped<IVillaRepository, VillaRepository>();
 
 var app = builder.Build();
 
