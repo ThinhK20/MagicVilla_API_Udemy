@@ -11,7 +11,7 @@ namespace MagicVilla_VillaApi.Models
         [ForeignKey("Villa")]
         public int VillaID { get; set; }
 
-        public Villa Villa { get; set; } // // Associated navigation property
+        public Villa Villa { get; set; }
 
         public string SpecialDetails { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
