@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components;
 @model IEnumerable<MagicVilla_Web.Models.Dto.VillaDTO>
 
-<img class="d-block w-100" src="images/home/slide1.jpg" alt="" />
+<img class="d-block w-100" style="max-height: 400px; object-fit: cover" src="images/home/slide1.jpg" alt="" />
 </hr>
 <div class="row" style="--bs-gutter-x:0">
 	@foreach(var villa in Model)
@@ -20,7 +20,7 @@
 				<div class="col-12">
 					<div class="row pb-3 pt-2">
 						<div class="col-4">
-							<a href="" class="btn btn-success form-control btn-block">Book</a>
+							<a href="" class="btn btn-success rounded form-control btn-block">Book</a>
 						</div>
 						<div class="col-4">
 							<span class="">Max Occupancy: @villa.Occupancy people </span>
